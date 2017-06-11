@@ -3,19 +3,20 @@ package main
 import (
 	"github.com/spf13/viper"
 	"log"
+	"github.com/devilsray/golang-viper-config-example/config"
 )
 
-func main(){
+func main() {
 	viper.SetConfigName("config")
 	viper.AddConfigPath(".")
-	var config Configuration
+	var configuration config.Configuration
 
 	if err := viper.ReadInConfig(); err != nil {
 		log.Fatalf("Error reading config file, %s", err)
 	}
-	err := viper.Unmarshal(&config)
+	err := viper.Unmarshal(&configuration)
 	if err != nil {
 		log.Printf("unable to decode into struct, %v", err)
 	}
-	log.Printf("uri is %s", config)
+	log.Printf("uri is %s", configuration)
 }

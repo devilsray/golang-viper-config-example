@@ -1,1 +1,2 @@
-databaseConnectonUri: "database connection uri has to be here"
+database:
+  connectionUri: "database connection uri"
