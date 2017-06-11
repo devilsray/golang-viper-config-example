@@ -16,7 +16,8 @@ func main() {
 	}
 	err := viper.Unmarshal(&configuration)
 	if err != nil {
-		log.Printf("unable to decode into struct, %v", err)
+		log.Fatalf("unable to decode into struct, %v", err)
 	}
-	log.Printf("uri is %s", configuration)
+	log.Printf("database uri is %s", configuration.Database.ConnectionUri)
+	log.Printf("port for this application is %d", configuration.Server.Port)
 }
